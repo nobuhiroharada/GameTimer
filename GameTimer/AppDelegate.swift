@@ -9,6 +9,7 @@
 import UIKit
 
 private(set) var viewController = ViewController()
+let userdefaults = UserDefaults.standard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

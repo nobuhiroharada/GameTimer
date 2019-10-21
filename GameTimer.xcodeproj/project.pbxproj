@@ -17,6 +17,9 @@
 		E527DDE322767BDB00102F15 /* GameTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDE022767BDB00102F15 /* GameTimeLabel.swift */; };
 		E527DDE622767E9900102F15 /* AlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDE522767E9900102F15 /* AlertDialog.swift */; };
 		E527DDE722767F7500102F15 /* Digital Dismay.otf in Resources */ = {isa = PBXBuildFile; fileRef = E527DDE422767D4D00102F15 /* Digital Dismay.otf */; };
+		E5F5F46822EC601A0071D253 /* BuzzerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5F46722EC601A0071D253 /* BuzzerButton.swift */; };
+		E5F5F46B22EC787B0071D253 /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5F5F46A22EC787B0071D253 /* buzzer.mp3 */; };
+		E5F5F46E22EC7C370071D253 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5F46D22EC7C370071D253 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		E527DDE022767BDB00102F15 /* GameTimeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimeLabel.swift; sourceTree = "<group>"; };
 		E527DDE422767D4D00102F15 /* Digital Dismay.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Digital Dismay.otf"; sourceTree = "<group>"; };
 		E527DDE522767E9900102F15 /* AlertDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDialog.swift; sourceTree = "<group>"; };
+		E5F5F46722EC601A0071D253 /* BuzzerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuzzerButton.swift; sourceTree = "<group>"; };
+		E5F5F46A22EC787B0071D253 /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
+		E5F5F46D22EC7C370071D253 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,16 +73,27 @@
 				E527DDC8227675C600102F15 /* AppDelegate.swift */,
 				E527DDCA227675C600102F15 /* ViewController.swift */,
 				E527DDDC22767B7F00102F15 /* GameTimeView.swift */,
-				E527DDDF22767BDB00102F15 /* ControlButton.swift */,
-				E527DDE022767BDB00102F15 /* GameTimeLabel.swift */,
-				E527DDDE22767BDB00102F15 /* ResetButton.swift */,
 				E527DDE522767E9900102F15 /* AlertDialog.swift */,
+				E5F5F46D22EC7C370071D253 /* UIImage+.swift */,
+				E5F5F46922EC60280071D253 /* Components */,
 				E527DDE422767D4D00102F15 /* Digital Dismay.otf */,
+				E5F5F46A22EC787B0071D253 /* buzzer.mp3 */,
 				E527DDCF227675CA00102F15 /* Assets.xcassets */,
 				E527DDD1227675CA00102F15 /* LaunchScreen.storyboard */,
 				E527DDD4227675CA00102F15 /* Info.plist */,
 			);
 			path = GameTimer;
+			sourceTree = "<group>";
+		};
+		E5F5F46922EC60280071D253 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E5F5F46722EC601A0071D253 /* BuzzerButton.swift */,
+				E527DDDE22767BDB00102F15 /* ResetButton.swift */,
+				E527DDDF22767BDB00102F15 /* ControlButton.swift */,
+				E527DDE022767BDB00102F15 /* GameTimeLabel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +156,7 @@
 			files = (
 				E527DDD3227675CA00102F15 /* LaunchScreen.storyboard in Resources */,
 				E527DDE722767F7500102F15 /* Digital Dismay.otf in Resources */,
+				E5F5F46B22EC787B0071D253 /* buzzer.mp3 in Resources */,
 				E527DDD0227675CA00102F15 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,8 +171,10 @@
 				E527DDCB227675C600102F15 /* ViewController.swift in Sources */,
 				E527DDDD22767B7F00102F15 /* GameTimeView.swift in Sources */,
 				E527DDE222767BDB00102F15 /* ControlButton.swift in Sources */,
+				E5F5F46822EC601A0071D253 /* BuzzerButton.swift in Sources */,
 				E527DDE322767BDB00102F15 /* GameTimeLabel.swift in Sources */,
 				E527DDE622767E9900102F15 /* AlertDialog.swift in Sources */,
+				E5F5F46E22EC7C370071D253 /* UIImage+.swift in Sources */,
 				E527DDC9227675C600102F15 /* AppDelegate.swift in Sources */,
 				E527DDE122767BDB00102F15 /* ResetButton.swift in Sources */,
 			);

@@ -26,6 +26,7 @@ class GameTimeView: UIView {
     var gameColonLabel: GameTimeLabel
     var gameControlButton: ControlButton
     var gameResetButton: ResetButton
+    var buzzerButton: BuzzerButton
     
     // 試合時間ピッカー
     var minArray: [String] = []
@@ -50,7 +51,7 @@ class GameTimeView: UIView {
         gameSeconds += Int(gameSecLabel.text!)!
         
         // GameTime ピッカー
-        for i in 0...20 { //分設定(ゲームタイムピッカー用)
+        for i in 0...60 { //分設定(ゲームタイムピッカー用)
             minArray.append(String(format: "%02d", i))
         }
         
@@ -82,6 +83,7 @@ class GameTimeView: UIView {
         gameControlButton = ControlButton()
         gameResetButton = ResetButton()
         gameResetButton.isEnabled = false
+        buzzerButton = BuzzerButton()
         
         super.init(frame: frame)
         
@@ -98,7 +100,7 @@ class GameTimeView: UIView {
         self.addSubview(gameSecLabel)
         self.addSubview(gameControlButton)
         self.addSubview(gameResetButton)
-        self.addSubview(gameControlButton)
+        self.addSubview(buzzerButton)
         self.addSubview(picker)
         
         addButtonAction()
@@ -163,11 +165,13 @@ class GameTimeView: UIView {
         gameSecLabel.center = CGPoint(x: frame.width*(2/3)+30,
                                       y: gameLabelY)
         
-        let gameButtonY = frame.height*(3/4)
+        let buttonY = frame.height*(3/4)
         
-        gameControlButton.center = CGPoint(x: frame.width*(1/3), y: gameButtonY)
+        gameControlButton.center = CGPoint(x: frame.width*(1/4), y: buttonY)
         
-        gameResetButton.center = CGPoint(x: frame.width*(2/3), y: gameButtonY)
+        gameResetButton.center = CGPoint(x: frame.width*(2/4), y: buttonY)
+        
+        buzzerButton.center = CGPoint(x: frame.width*(3/4), y: buttonY)
         
         pickerMinLabel.frame = CGRect(x: picker.bounds.width*0.4 - pickerMinLabel.bounds.width/2,
                                               y: picker.bounds.height/2 - (pickerMinLabel.bounds.height/2),
@@ -205,9 +209,11 @@ class GameTimeView: UIView {
         
         let gameTimeButtonY = frame.height*(7/8)
         
-        gameControlButton.center = CGPoint(x: frame.width*(3/8), y: gameTimeButtonY)
+        gameControlButton.center = CGPoint(x: frame.width*(2/8), y: gameTimeButtonY)
         
-        gameResetButton.center = CGPoint(x: frame.width*(5/8), y: gameTimeButtonY)
+        gameResetButton.center = CGPoint(x: frame.width*(4/8), y: gameTimeButtonY)
+        
+        buzzerButton.center = CGPoint(x: frame.width*(6/8), y: gameTimeButtonY)
         
     }
     
@@ -274,6 +280,10 @@ class GameTimeView: UIView {
         
         self.gameResetButton.addTarget(self, action: #selector(GameTimeView.gameResetButton_tapped), for: .touchUpInside)
         
+        self.buzzerButton.addTarget(self, action: #selector(GameTimeView.buzzerButton_touchDown), for: .touchDown)
+        
+        self.buzzerButton.addTarget(self, action: #selector(GameTimeView.buzzerButton_touchUp), for: [.touchUpInside, .touchUpOutside])
+        
     }
     
     @objc func gameControlButton_tapped(_ sender: UIButton) {
@@ -311,6 +321,17 @@ class GameTimeView: UIView {
         self.gameResetButton.isEnabled = false
     }
     
+    @objc func buzzerButton_touchDown(_ sender: UIButton) {
+        viewController.buzzerPlayer?.play()
+        self.buzzerButton.setImage(UIImage(named: "buzzer-down"), for: .normal)
+    }
+    
+    @objc func buzzerButton_touchUp(_ sender: UIButton) {
+        viewController.buzzerPlayer?.stop()
+        viewController.buzzerPlayer?.currentTime = 0
+        self.buzzerButton.setImage(UIImage(named: "buzzer-up"), for: .normal)
+    }
+    
     func runGameTimer(){
         self.gameTimer = Timer.scheduledTimer(
             timeInterval: 1,
@@ -322,6 +343,11 @@ class GameTimeView: UIView {
     
     @objc func gameTimerCount() {
         if self.gameSeconds < 1 {
+            
+            viewController.buzzerPlayer?.play()
+            self.buzzerButton.setImage(UIImage(named: "buzzer-down"), for: .normal)
+            
+            
             self.gameTimer.invalidate()
             self.gameSecLabel.text = "00"
             self.openGameTimeOverDialog()

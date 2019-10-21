@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
     var gameTimeView  = GameTimeView()
+    var buzzerPlayer: AVAudioPlayer?
     
     override var prefersStatusBarHidden: Bool {
         return false
@@ -26,6 +28,18 @@ class ViewController: UIViewController {
         gameTimeView.frame = self.view.frame
         self.view.addSubview(gameTimeView)
         
+        let buzzerURL = Bundle.main.bundleURL.appendingPathComponent("buzzer.mp3")
+        
+        do {
+            try buzzerPlayer = AVAudioPlayer(contentsOf:buzzerURL)
+            
+            buzzerPlayer?.prepareToPlay()
+            buzzerPlayer?.volume = 2.0
+            buzzerPlayer?.delegate = self
+            
+        } catch {
+            print(error)
+        }
     }
 
     override func viewWillLayoutSubviews() {
@@ -43,3 +57,12 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        
+        gameTimeView.buzzerButton.setImage(UIImage(named: "buzzer-up"), for: .normal)
+        
+    }
+    
+}
