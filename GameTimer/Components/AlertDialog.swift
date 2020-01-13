@@ -20,4 +20,12 @@ class AlertDialog: UIAlertController {
         viewController.present(alert, animated: true, completion: callback)
     }
     
+    static func setSelectShotClockColor(action: UIAlertAction, color: UIColor) -> UIAlertAction {
+            
+        action.setValue(UIImage(named: "checkmark.png")?.scaleImage(scaleSize: 0.4), forKey: "image")
+        action.setValue(color, forKey: "imageTintColor")
+        action.setValue(color, forKey: "titleTextColor")
+        
+        return action
+    }
 }

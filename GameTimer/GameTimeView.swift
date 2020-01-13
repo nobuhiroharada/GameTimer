@@ -8,7 +8,11 @@
 
 import UIKit
 
-class GameTimeView: UIView {
+enum TextColorState: String {
+    case red, green, yellow, white, systemBlue, systemIndigo, systemOrange, systemPink, systemTeal
+}
+
+final class GameTimeView: UIView {
     
     // 試合時間ラベル
     var gameTimer: Timer!
@@ -27,6 +31,8 @@ class GameTimeView: UIView {
     var gameControlButton: ControlButton
     var gameResetButton: ResetButton
     var buzzerButton: BuzzerButton
+    var autoBuzzerLabel: AutoBuzzerLabel
+    var settingButton: SettingButton
     
     // 試合時間ピッカー
     var minArray: [String] = []
@@ -64,17 +70,17 @@ class GameTimeView: UIView {
         picker.setValue(UIColor.white, forKey: "textColor")
 
         pickerMinLabel = UILabel()
-        pickerMinLabel.text = "min"
+        pickerMinLabel.text = "picker_min".localized
         pickerMinLabel.font = UIFont(name: "Avenir Next", size: 20)
-        pickerMinLabel.textColor = .yellow
+        pickerMinLabel.textColor = gameMinLabel.getTextColor()
         pickerMinLabel.sizeToFit()
 
         picker.addSubview(pickerMinLabel)
 
         pickerSecLabel = UILabel()
-        pickerSecLabel.text = "sec"
+        pickerSecLabel.text = "picker_sec".localized
         pickerSecLabel.font = UIFont(name: "Avenir Next", size: 20)
-        pickerSecLabel.textColor = .yellow
+        pickerSecLabel.textColor = gameMinLabel.getTextColor()
         pickerSecLabel.sizeToFit()
 
         picker.addSubview(pickerSecLabel)
@@ -84,6 +90,8 @@ class GameTimeView: UIView {
         gameResetButton = ResetButton()
         gameResetButton.isEnabled = false
         buzzerButton = BuzzerButton()
+        autoBuzzerLabel = AutoBuzzerLabel()
+        settingButton = SettingButton()
         
         super.init(frame: frame)
         
@@ -101,6 +109,8 @@ class GameTimeView: UIView {
         self.addSubview(gameControlButton)
         self.addSubview(gameResetButton)
         self.addSubview(buzzerButton)
+        self.addSubview(autoBuzzerLabel)
+        self.addSubview(settingButton)
         self.addSubview(picker)
         
         addButtonAction()
@@ -116,36 +126,26 @@ class GameTimeView: UIView {
             checkOrientation4Pad()
             
         case .phone:
-            fallthrough
+            checkOrientation4Phone()
 
         default:
-            checkOrientation4Phone()
+            break
         }
     }
     
     func checkOrientation4Phone() {
-        switch UIApplication.shared.statusBarOrientation {
-        case .landscapeLeft, .landscapeRight:
-            initPhoneAttrLandscape()
-
-        case .portrait, .portraitUpsideDown:
-            fallthrough
-            
-        default:
-            initPhoneAttrPortrait()
+        if isLandscape {
+            setParams4PhoneLandscape()
+        } else {
+            setParams4PhonePortrait()
         }
     }
     
     func checkOrientation4Pad() {
-        switch UIApplication.shared.statusBarOrientation {
-        case .landscapeLeft, .landscapeRight:
-            initPadAttrLandscape()
-            
-        case .portrait, .portraitUpsideDown:
-            fallthrough
-            
-        default:
-            initPadAttrPortrait()
+        if isLandscape {
+            setParams4PadLandscape()
+        } else {
+            setParams4PadPortrait()
         }
     }
     
@@ -172,6 +172,9 @@ class GameTimeView: UIView {
         gameResetButton.center = CGPoint(x: frame.width*(2/4), y: buttonY)
         
         buzzerButton.center = CGPoint(x: frame.width*(3/4), y: buttonY)
+        autoBuzzerLabel.center = CGPoint(x: frame.width*(3/4), y: buttonY-36)
+        
+        settingButton.center = CGPoint(x: frame.width*(1/12), y: frame.height*(1/12))
         
         pickerMinLabel.frame = CGRect(x: picker.bounds.width*0.4 - pickerMinLabel.bounds.width/2,
                                               y: picker.bounds.height/2 - (pickerMinLabel.bounds.height/2),
@@ -214,64 +217,66 @@ class GameTimeView: UIView {
         gameResetButton.center = CGPoint(x: frame.width*(4/8), y: gameTimeButtonY)
         
         buzzerButton.center = CGPoint(x: frame.width*(6/8), y: gameTimeButtonY)
+        autoBuzzerLabel.center = CGPoint(x: frame.width*(6/8), y: gameTimeButtonY-36)
         
+        settingButton.center = CGPoint(x: frame.width*(1/12), y: frame.height*(1/12))
     }
     
     
-    func initPhoneAttrPortrait() {
+    func setParams4PhonePortrait() {
 
-        gameMinLabel.initPhoneAttrPortrait()
-
+        gameMinLabel.setParams4PhonePortrait()
+        
         gameColonLabel.bounds = CGRect(x: 0, y: 0, width: 30, height: 140)
         gameColonLabel.font = UIFont(name: "DigitalDismay", size: 100)
         
-        gameSecLabel.initPhoneAttrPortrait()
+        gameSecLabel.setParams4PhonePortrait()
 
         picker.frame = CGRect(x: 0, y: 0, width: frame.width, height: 200)
         picker.center = CGPoint(x: frame.width/2, y: frame.height/2)
     }
     
-    func initPhoneAttrLandscape() {
+    func setParams4PhoneLandscape() {
         
-        gameMinLabel.initPhoneAttrLandscape()
+        gameMinLabel.setParams4PhoneLandscape()
         
         gameColonLabel.bounds = CGRect(x: 0, y: 0, width: 50, height: 210)
         gameColonLabel.font = UIFont(name: "DigitalDismay", size: 150)
         
-        gameSecLabel.initPhoneAttrLandscape()
+        gameSecLabel.setParams4PhoneLandscape()
         
         picker.frame = CGRect(x: 0, y: 0, width: frame.width, height: 200)
         picker.center = CGPoint(x: frame.width/2, y: frame.height/2)
     }
     
-    func initPadAttrPortrait() {
-        gameMinLabel.initPadAttrPortrait()
+    func setParams4PadPortrait() {
+        gameMinLabel.setParams4PadPortrait()
         
         gameColonLabel.bounds = CGRect(x: 0, y: 0, width: 60, height: 200)
         gameColonLabel.font = UIFont(name: "DigitalDismay", size: 200)
         
-        gameSecLabel.initPadAttrPortrait()
+        gameSecLabel.setParams4PadPortrait()
         
         picker.frame = CGRect(x: 0, y: 0, width: frame.width, height: 400)
         picker.center = CGPoint(x: frame.width/2, y: frame.height/2)
     }
     
-    func initPadAttrLandscape() {
-        gameMinLabel.initPadAttrLandscape()
+    func setParams4PadLandscape() {
+        gameMinLabel.setParams4PadLandscape()
         
         gameColonLabel.bounds = CGRect(x: 0, y: 0, width: 90, height: 240)
         gameColonLabel.font = UIFont(name: "DigitalDismay", size: 300)
         
-        gameSecLabel.initPadAttrLandscape()
+        gameSecLabel.setParams4PadLandscape()
         
         picker.frame = CGRect(x: 0, y: 0, width: frame.width, height: 500)
         picker.center = CGPoint(x: frame.width/2, y: frame.height/2)
     }
     
     func toggleGameLabels() {
-        gameMinLabel.isHidden = !gameMinLabel.isHidden
-        gameColonLabel.isHidden = !gameColonLabel.isHidden
-        gameSecLabel.isHidden = !gameSecLabel.isHidden
+        gameMinLabel.isHidden.toggle()
+        gameColonLabel.isHidden.toggle()
+        gameSecLabel.isHidden.toggle()
     }
     
     func addButtonAction() {
@@ -283,6 +288,8 @@ class GameTimeView: UIView {
         self.buzzerButton.addTarget(self, action: #selector(GameTimeView.buzzerButton_touchDown), for: .touchDown)
         
         self.buzzerButton.addTarget(self, action: #selector(GameTimeView.buzzerButton_touchUp), for: [.touchUpInside, .touchUpOutside])
+        
+        self.settingButton.addTarget(self, action: #selector(GameTimeView.settingButton_touchUp), for: [.touchUpInside, .touchUpOutside])
         
     }
     
@@ -322,14 +329,24 @@ class GameTimeView: UIView {
     }
     
     @objc func buzzerButton_touchDown(_ sender: UIButton) {
-        viewController.buzzerPlayer?.play()
+        mainViewController.buzzerPlayer?.play()
         self.buzzerButton.setImage(UIImage(named: "buzzer-down"), for: .normal)
     }
     
     @objc func buzzerButton_touchUp(_ sender: UIButton) {
-        viewController.buzzerPlayer?.stop()
-        viewController.buzzerPlayer?.currentTime = 0
+        mainViewController.buzzerPlayer?.stop()
+        mainViewController.buzzerPlayer?.currentTime = 0
         self.buzzerButton.setImage(UIImage(named: "buzzer-up"), for: .normal)
+    }
+    
+    @objc func settingButton_touchUp(_ sender: UIButton) {
+        
+        let settingViewController = SettingViewController()
+        settingViewController.gameTimeView = self
+        
+        let navigationController = UINavigationController(rootViewController: settingViewController)
+        let currentViewController = self.topViewController()
+        currentViewController?.present(navigationController, animated: true, completion: nil)
     }
     
     func runGameTimer(){
@@ -344,9 +361,10 @@ class GameTimeView: UIView {
     @objc func gameTimerCount() {
         if self.gameSeconds < 1 {
             
-            viewController.buzzerPlayer?.play()
-            self.buzzerButton.setImage(UIImage(named: "buzzer-down"), for: .normal)
-            
+            if (userdefaults.bool(forKey: BUZEER_AUTO_BEEP)) {
+                mainViewController.buzzerPlayer?.play()
+                self.buzzerButton.setImage(UIImage(named: "buzzer-down"), for: .normal)
+            }
             
             self.gameTimer.invalidate()
             self.gameSecLabel.text = "00"
@@ -365,7 +383,7 @@ class GameTimeView: UIView {
     }
     
     func openGameTimeOverDialog() {
-        AlertDialog.showTimeover(title: "Game Time Over", viewController: viewController) {
+        AlertDialog.showTimeover(title: "shotclock_over".localized, viewController: mainViewController) {
             self.gameTimer.invalidate()
             self.gameSeconds = self.oldGameSeconds
             self.showGameTime()
@@ -375,6 +393,36 @@ class GameTimeView: UIView {
             self.toggleGameLabels()
             self.picker.isHidden = !self.picker.isHidden
         }
+    }
+    
+    func reset() {
+        if gameTimer != nil {
+           gameTimer.invalidate()
+        }
+        gameSeconds = 600
+        oldGameSeconds = 600
+        let min = gameSeconds/60
+        let sec = gameSeconds%60
+        gameMinLabel.text = String(format: "%02d", min)
+        gameSecLabel.text = String(format: "%02d", sec)
+        gameControlButton.setImage(UIImage(named: "start.png"), for: .normal)
+        gameResetButton.isEnabled = false
+        gameTimerStatus = .START
+        gameMinLabel.isHidden = true
+        gameColonLabel.isHidden = true
+        gameSecLabel.isHidden = true
+        
+        picker.isHidden = false
+        picker.selectRow(10, inComponent: 0, animated: true)
+        picker.selectRow(0, inComponent: 1, animated: true)
+        
+        gameMinLabel.textColor = .yellow
+        gameColonLabel.textColor = .yellow
+        gameSecLabel.textColor = .yellow
+        pickerMinLabel.textColor = .yellow
+        pickerSecLabel.textColor = .yellow
+        picker.reloadAllComponents()
+        userdefaults.setState(.yellow, forKey: GAME_TIME_TEXT_COLOR)
     }
 }
 
@@ -417,7 +465,7 @@ extension GameTimeView: UIPickerViewDelegate, UIPickerViewDataSource {
         
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .yellow
+        label.textColor = gameMinLabel.getTextColor()
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
@@ -468,5 +516,50 @@ extension GameTimeView: UIPickerViewDelegate, UIPickerViewDataSource {
         let sec = Int(gameSecLabel.text!)
         gameSeconds = min!*60 + sec!
         oldGameSeconds = gameSeconds
+    }
+    
+    func getColorCollectionViewHeight() -> CGFloat {
+        if isLandscape {
+            return 44.0
+        } else {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                return 44.0
+            } else {
+                return 92.0
+            }
+        }
+    }
+    
+    func getColorCollectionViewTitlePosX() -> CGFloat {
+        if isLandscape {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                return 15.0
+            } else {
+                return 60.0
+            }
+        } else {
+            return 15.0
+        }
+    }
+    
+    func getColorCollectionViewPosX() -> CGFloat {
+       if isLandscape {
+           if UIDevice.current.userInterfaceIdiom == .pad {
+               return 0
+           } else {
+               return 60.0
+           }
+       } else {
+           return 0
+       }
+   }
+    
+    func setSelectedTextColor(color: UIColor) {
+        self.gameMinLabel.textColor = color
+        self.gameColonLabel.textColor = color
+        self.gameSecLabel.textColor = color
+        self.pickerMinLabel.textColor = color
+        self.pickerSecLabel.textColor = color
+        self.picker.reloadAllComponents()
     }
 }

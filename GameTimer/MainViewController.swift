@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     var gameTimeView  = GameTimeView()
     var buzzerPlayer: AVAudioPlayer?
@@ -45,19 +45,16 @@ class ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        switch UIApplication.shared.statusBarOrientation {
-        case .landscapeLeft, .landscapeRight:
+        if isLandscape {
             self.gameTimeView.landscape(frame: self.view.frame)
-        case .portrait, .portraitUpsideDown:
-            fallthrough
-        default:
+        } else {
             self.gameTimeView.portrait(frame: self.view.frame)
         }
     }
     
 }
 
-extension ViewController: AVAudioPlayerDelegate {
+extension MainViewController: AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         

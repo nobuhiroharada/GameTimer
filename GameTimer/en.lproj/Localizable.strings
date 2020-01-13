@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  GameTimer
+
+  Created by Nobuhiro Harada on 2019/10/22.
+  Copyright © 2019 Nobuhiro Harada. All rights reserved.
+*/
+
+// 設定画面
+"setting_view_title" = "Setting";
+"setting_auto_buzzer" = "Auto buzzer";
+"setting_reset" = "Reset";
+"setting_cancel" = "Cancel";
+"setting_gametime_text_color" =  "GameTimer color set";
+
+// ピッカーラベル
+"picker_min" =  "min";
+"picker_sec" =  "sec";
+
+// ゲームタイム オーバー
+"shotclock_over" = "Game Time Over";
+
+// ゲームタイム 編集
+"shotclock_title" = "Edit Game Time";
+
+// アプリバージョン
+"app_version" = "Version";

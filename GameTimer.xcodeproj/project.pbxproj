@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E525E29B23C3A01D00C214C4 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525E29A23C3A01D00C214C4 /* ColorCollectionViewCell.swift */; };
+		E525E29D23C3B6EC00C214C4 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525E29C23C3B6EC00C214C4 /* UIView+.swift */; };
+		E525E2A323C542D000C214C4 /* AutoBuzzerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525E2A223C542D000C214C4 /* AutoBuzzerLabel.swift */; };
 		E527DDC9227675C600102F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDC8227675C600102F15 /* AppDelegate.swift */; };
-		E527DDCB227675C600102F15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDCA227675C600102F15 /* ViewController.swift */; };
+		E527DDCB227675C600102F15 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDCA227675C600102F15 /* MainViewController.swift */; };
 		E527DDD0227675CA00102F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E527DDCF227675CA00102F15 /* Assets.xcassets */; };
 		E527DDD3227675CA00102F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E527DDD1227675CA00102F15 /* LaunchScreen.storyboard */; };
 		E527DDDD22767B7F00102F15 /* GameTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDDC22767B7F00102F15 /* GameTimeView.swift */; };
@@ -17,15 +20,23 @@
 		E527DDE322767BDB00102F15 /* GameTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDE022767BDB00102F15 /* GameTimeLabel.swift */; };
 		E527DDE622767E9900102F15 /* AlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E527DDE522767E9900102F15 /* AlertDialog.swift */; };
 		E527DDE722767F7500102F15 /* Digital Dismay.otf in Resources */ = {isa = PBXBuildFile; fileRef = E527DDE422767D4D00102F15 /* Digital Dismay.otf */; };
+		E5D0D9EF235DAA190019274C /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5D0D9EE235DAA190019274C /* buzzer.mp3 */; };
+		E5D0D9F1235DD0D20019274C /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0D9F0235DD0D20019274C /* SettingButton.swift */; };
+		E5D0D9F3235E49440019274C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0D9F2235E49440019274C /* SettingViewController.swift */; };
+		E5D0D9F6235E4A180019274C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0D9F5235E4A180019274C /* String+.swift */; };
+		E5D0D9FA235E4ADB0019274C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5D0D9FC235E4ADB0019274C /* Localizable.strings */; };
+		E5D0D9FF235E4FB40019274C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0D9FE235E4FB40019274C /* UserDefaults.swift */; };
 		E5F5F46822EC601A0071D253 /* BuzzerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5F46722EC601A0071D253 /* BuzzerButton.swift */; };
-		E5F5F46B22EC787B0071D253 /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5F5F46A22EC787B0071D253 /* buzzer.mp3 */; };
 		E5F5F46E22EC7C370071D253 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5F46D22EC7C370071D253 /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E525E29A23C3A01D00C214C4 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		E525E29C23C3B6EC00C214C4 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		E525E2A223C542D000C214C4 /* AutoBuzzerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoBuzzerLabel.swift; sourceTree = "<group>"; };
 		E527DDC5227675C600102F15 /* GameTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E527DDC8227675C600102F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E527DDCA227675C600102F15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E527DDCA227675C600102F15 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E527DDCF227675CA00102F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E527DDD2227675CA00102F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E527DDD4227675CA00102F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,8 +46,15 @@
 		E527DDE022767BDB00102F15 /* GameTimeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTimeLabel.swift; sourceTree = "<group>"; };
 		E527DDE422767D4D00102F15 /* Digital Dismay.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Digital Dismay.otf"; sourceTree = "<group>"; };
 		E527DDE522767E9900102F15 /* AlertDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDialog.swift; sourceTree = "<group>"; };
+		E5D0D9EE235DAA190019274C /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
+		E5D0D9F0235DD0D20019274C /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		E5D0D9F2235E49440019274C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		E5D0D9F5235E4A180019274C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		E5D0D9F7235E4A9B0019274C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E5D0D9FB235E4ADB0019274C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E5D0D9FD235E4AE10019274C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E5D0D9FE235E4FB40019274C /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E5F5F46722EC601A0071D253 /* BuzzerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuzzerButton.swift; sourceTree = "<group>"; };
-		E5F5F46A22EC787B0071D253 /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
 		E5F5F46D22EC7C370071D253 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,27 +89,43 @@
 			isa = PBXGroup;
 			children = (
 				E527DDC8227675C600102F15 /* AppDelegate.swift */,
-				E527DDCA227675C600102F15 /* ViewController.swift */,
+				E527DDCA227675C600102F15 /* MainViewController.swift */,
+				E5D0D9F2235E49440019274C /* SettingViewController.swift */,
 				E527DDDC22767B7F00102F15 /* GameTimeView.swift */,
-				E527DDE522767E9900102F15 /* AlertDialog.swift */,
-				E5F5F46D22EC7C370071D253 /* UIImage+.swift */,
 				E5F5F46922EC60280071D253 /* Components */,
+				E5D0D9F4235E49F30019274C /* Extensions */,
 				E527DDE422767D4D00102F15 /* Digital Dismay.otf */,
-				E5F5F46A22EC787B0071D253 /* buzzer.mp3 */,
 				E527DDCF227675CA00102F15 /* Assets.xcassets */,
+				E5D0D9EE235DAA190019274C /* buzzer.mp3 */,
 				E527DDD1227675CA00102F15 /* LaunchScreen.storyboard */,
 				E527DDD4227675CA00102F15 /* Info.plist */,
+				E5D0D9FC235E4ADB0019274C /* Localizable.strings */,
 			);
 			path = GameTimer;
+			sourceTree = "<group>";
+		};
+		E5D0D9F4235E49F30019274C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5F5F46D22EC7C370071D253 /* UIImage+.swift */,
+				E5D0D9F5235E4A180019274C /* String+.swift */,
+				E5D0D9FE235E4FB40019274C /* UserDefaults.swift */,
+				E525E29C23C3B6EC00C214C4 /* UIView+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E5F5F46922EC60280071D253 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E527DDE522767E9900102F15 /* AlertDialog.swift */,
+				E525E2A223C542D000C214C4 /* AutoBuzzerLabel.swift */,
 				E5F5F46722EC601A0071D253 /* BuzzerButton.swift */,
 				E527DDDE22767BDB00102F15 /* ResetButton.swift */,
 				E527DDDF22767BDB00102F15 /* ControlButton.swift */,
 				E527DDE022767BDB00102F15 /* GameTimeLabel.swift */,
+				E5D0D9F0235DD0D20019274C /* SettingButton.swift */,
+				E525E29A23C3A01D00C214C4 /* ColorCollectionViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -138,6 +172,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = E527DDBC227675C500102F15;
 			productRefGroup = E527DDC6227675C600102F15 /* Products */;
@@ -154,9 +189,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D0D9FA235E4ADB0019274C /* Localizable.strings in Resources */,
 				E527DDD3227675CA00102F15 /* LaunchScreen.storyboard in Resources */,
 				E527DDE722767F7500102F15 /* Digital Dismay.otf in Resources */,
-				E5F5F46B22EC787B0071D253 /* buzzer.mp3 in Resources */,
+				E5D0D9EF235DAA190019274C /* buzzer.mp3 in Resources */,
 				E527DDD0227675CA00102F15 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,14 +204,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E527DDCB227675C600102F15 /* ViewController.swift in Sources */,
+				E527DDCB227675C600102F15 /* MainViewController.swift in Sources */,
+				E5D0D9F3235E49440019274C /* SettingViewController.swift in Sources */,
 				E527DDDD22767B7F00102F15 /* GameTimeView.swift in Sources */,
 				E527DDE222767BDB00102F15 /* ControlButton.swift in Sources */,
+				E5D0D9FF235E4FB40019274C /* UserDefaults.swift in Sources */,
 				E5F5F46822EC601A0071D253 /* BuzzerButton.swift in Sources */,
 				E527DDE322767BDB00102F15 /* GameTimeLabel.swift in Sources */,
 				E527DDE622767E9900102F15 /* AlertDialog.swift in Sources */,
+				E525E29B23C3A01D00C214C4 /* ColorCollectionViewCell.swift in Sources */,
+				E525E29D23C3B6EC00C214C4 /* UIView+.swift in Sources */,
 				E5F5F46E22EC7C370071D253 /* UIImage+.swift in Sources */,
+				E525E2A323C542D000C214C4 /* AutoBuzzerLabel.swift in Sources */,
 				E527DDC9227675C600102F15 /* AppDelegate.swift in Sources */,
+				E5D0D9F1235DD0D20019274C /* SettingButton.swift in Sources */,
+				E5D0D9F6235E4A180019274C /* String+.swift in Sources */,
 				E527DDE122767BDB00102F15 /* ResetButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,8 +230,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				E527DDD2227675CA00102F15 /* Base */,
+				E5D0D9F7235E4A9B0019274C /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E5D0D9FC235E4ADB0019274C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5D0D9FB235E4ADB0019274C /* en */,
+				E5D0D9FD235E4AE10019274C /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -198,6 +251,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -245,7 +299,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -259,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -300,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -321,6 +376,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.gametimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -339,6 +395,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nobuhiroharada.gametimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

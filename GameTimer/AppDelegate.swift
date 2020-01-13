@@ -8,8 +8,20 @@
 
 import UIKit
 
-private(set) var viewController = ViewController()
+let BUZEER_AUTO_BEEP: String = "buzzer_auto_beep"
+let GAME_TIME_TEXT_COLOR: String = "game_time_text_color"
+
+var isLandscape: Bool {
+    return UIApplication.shared.windows
+        .first?
+        .windowScene?
+        .interfaceOrientation
+        .isLandscape ?? false
+}
+
+private(set) var mainViewController = MainViewController()
 let userdefaults = UserDefaults.standard
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        if (userdefaults.object(forKey: BUZEER_AUTO_BEEP) == nil) {
+            userdefaults.set(false, forKey: BUZEER_AUTO_BEEP)
+        }
+        
+        if (userdefaults.string(forKey: GAME_TIME_TEXT_COLOR) == nil) {
+            userdefaults.setState(.yellow, forKey: GAME_TIME_TEXT_COLOR)
+        }
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
+        window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
         
         return true
